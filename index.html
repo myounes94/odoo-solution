@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرض تركيب Odoo — حلول احترافية للشركات</title>
+    <title>Odoo Solutions - Younes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root {
             --bg: #0f1724;
@@ -57,17 +58,24 @@
             gap: 12px;
         }
 
-        .logo {
-            width: 54px;
-            height: 54px;
-            border-radius: 12px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
-        }
+.logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    overflow: hidden; /* للتأكد إن الصورة لا تخرج عن حدود الـdiv */
+}
+
+.logo img {
+    max-width: 80%;  /* يتحكم في حجم الصورة داخل الـdiv */
+    max-height: 80%;
+    object-fit: contain; /* يحافظ على نسبة أبعاد الصورة */
+    display: block;
+}
 
         h1 {
             font-size: 24px;
@@ -81,6 +89,54 @@
         p.lead {
             color: var(--muted);
             margin: 6px 0 0;
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--muted);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--gradient);
+            color: #022;
+            border-color: var(--accent);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .leads-counter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .leads-counter i {
+            color: var(--accent);
+        }
+
+        .leads-count {
+            font-weight: 700;
+            color: var(--accent);
         }
 
         .offer-banner {
@@ -504,6 +560,19 @@
             header {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            
+            .header-controls {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                margin-top: 12px;
+            }
+            
+            .language-switcher {
+                margin-right: 0;
+                justify-content: center;
             }
             
             .offer-banner {
@@ -940,6 +1009,70 @@
         .flatpickr-time input {
             color: var(--white) !important;
         }
+
+        /* Hosting notice */
+        .hosting-notice {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 16px;
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hosting-notice i {
+            color: var(--warning);
+            font-size: 20px;
+        }
+
+        .hosting-notice-content h4 {
+            margin: 0 0 6px;
+            color: var(--warning);
+        }
+
+        .hosting-notice-content p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* Language-specific styles */
+        [lang="en"] {
+            direction: ltr;
+            text-align: left;
+        }
+
+        [lang="en"] .section-header,
+        [lang="en"] .module-category h4,
+        [lang="en"] .module-checkbox,
+        [lang="en"] .price-line,
+        [lang="en"] .selected-module,
+        [lang="en"] .project-header,
+        [lang="en"] .process-step,
+        [lang="en"] .feature-highlight,
+        [lang="en"] .header-contact,
+        [lang="en"] .contact-info,
+        [lang="en"] .offer-banner,
+        [lang="en"] .benefit-card,
+        [lang="en"] .testimonial,
+        [lang="en"] .hosting-notice {
+            direction: ltr;
+            text-align: left;
+        }
+
+        [lang="en"] .faq-question {
+            flex-direction: row-reverse;
+        }
+
+        [lang="en"] .cta-row {
+            direction: ltr;
+        }
+
+        [lang="en"] .process-steps::before {
+            left: 0;
+            right: 0;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -948,22 +1081,33 @@
     <div class="container">
         <header>
             <div class="brand">
-                <div class="logo">
-                    <i class="fas fa-cube"></i>
-                </div>
+<div class="logo">
+    <img src="favicon1.png" alt="Logo">
+</div>
                 <div>
                     <h1>حلول Odoo المتكاملة للشركات</h1>
                     <p class="lead">نظام ERP متكامل لتحسين عملياتك وزيادة إنتاجيتك</p>
                 </div>
             </div>
-            <div class="header-contact">
-                <div class="contact-info">
-                    <i class="fas fa-phone"></i>
-                    <span>+201556332633</span>
+            <div class="header-controls">
+                <div class="language-switcher">
+                    <!-- <button class="lang-btn active" data-lang="ar">العربية</button> -->
+                    <!-- <button class="lang-btn" data-lang="en">English</button> -->
                 </div>
-                <div class="counter">
-                    <span>باقي من العروض:</span>
-                    <span class="counter-number" id="counter">7</span>
+                <div class="header-contact">
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>201556332633+</span>
+                    </div>
+                    <div class="leads-counter">
+                        <i class="fas fa-chart-line"></i>
+                        <span>عدد الزيارات:</span>
+                        <span class="leads-count" id="leads-count">0</span>
+                    </div>
+                    <div class="counter">
+                        <span>باقي من العروض:</span>
+                        <span class="counter-number" id="counter">7</span>
+                    </div>
                 </div>
             </div>
         </header>
@@ -979,8 +1123,16 @@
         <div class="hero-section">
             <div class="hero-bg"></div>
             <h2 class="hero-title">حل ERP جاهز لعملك — بسرعة ومهارة</h2>
-            <p class="hero-sub">نقوم بتركيب Odoo مجانًا، وتدفع فقط 5000 جنيه لتخصيص النظام، وإعداد التقارير، وتدريب المستخدمين. دعم شهري 100 جنيه.</p>
+            <p class="hero-sub">نقوم بتركيب Odoo مجانًا، وتدفع فقط 5000  لتخصيص وحدات  النظام، وإعداد التقارير، وتدريب المستخدمين. دعم سنوي 1200 .</p>
             
+            <div class="hosting-notice">
+                <i class="fas fa-server"></i>
+                <div class="hosting-notice-content">
+                    <h4>ملاحظة هامة حول الاستضافة</h4>
+                    <p>تكلفة الاستضافة السنوية تتحملها الشركة وليست ضمن تكلفة الخدمة سواء استضافة سحابية او سيرفر داخلي.</p>
+                </div>
+            </div>
+           
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1017,10 +1169,10 @@
             <section class="card">
                 <div class="pricing-card card">
                     <div class="price-section">
-                        <span class="price-old">7500 ج.ت</span>
-                        <span class="price" id="total-price">5000 ج.ت</span>
+                        <span class="price-old">7500 </span>
+                        <span class="price" id="total-price">5000 </span>
                     </div>
-                    <p class="small">سعر التخصيص + 100 ج.ت / شهر الدعم الفني</p>
+                    <p class="small">سعر التخصيص + 100  / شهر الدعم الفني</p>
                     <div class="guarantee-badge">
                         <i class="fas fa-check-circle"></i>
                         <span>ضمان استرجاع الأموال خلال 7 أيام إذا لم ترض عن الخدمة</span>
@@ -1033,7 +1185,7 @@
                     </div>
                     <h3>اختر الموديولات المطلوبة من Odoo 17</h3>
                 </div>
-                <p class="muted">اختر الموديولات التي تحتاجها - كل موديول بسعر 5000 جنيه + 1200 جنيه دعم فني سنوي</p>
+                <p class="muted">اختر الموديولات التي تحتاجها - كل موديول بسعر 5000  + 1200  دعم فني سنوي</p>
                 
                 <div class="modules-categories">
                     <!-- المبيعات والتسويق -->
@@ -1167,11 +1319,11 @@
                     </div>
                     <div class="price-line">
                         <span>تكلفة الموديولات:</span>
-                        <span id="modules-price">0 ج.ت</span>
+                        <span id="modules-price">0 </span>
                     </div>
                     <div class="price-line">
                         <span>الدعم الفني السنوي:</span>
-                        <span id="support-price">0 ج.ت</span>
+                        <span id="support-price">0 </span>
                     </div>
                     <div class="price-line">
                         <span>تكلفة الاستضافة السنوية:</span>
@@ -1179,7 +1331,7 @@
                     </div>
                     <div class="price-line price-total">
                         <span>الإجمالي:</span>
-                        <span id="final-price">0 ج.ت</span>
+                        <span id="final-price">0 </span>
                     </div>
                     
                     <div class="selected-modules-list" id="selected-modules">
@@ -1342,10 +1494,7 @@
                     </div>
                 </div>
 
-                <div class="testimonial">
-                    <p class="testimonial-text">"فريق محترف جدًا، قاموا بتسليم النظام خلال يومين فقط مع تدريب شامل للموظفين. أنصح بالتعامل معهم."</p>
-                    <p class="testimonial-author">- أحمد محمد، مدير شركة التقنية المتطورة</p>
-                </div>
+
 
                 <div class="cta-row">
                     <button class="btn btn-primary" id="bookDemo">
@@ -1377,7 +1526,7 @@
                             <span>+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>نعم — نقوم بتنصيب النظام وتهيئة الأساسيات مجانًا. التكلفة الوحيدة هي 5000 جنيه للتخصيص، التدريب، وتحويل بيانات محدودة.</p>
+                            <p>نعم — نقوم بتنصيب النظام وتهيئة الأساسيات مجانًا. التكلفة الوحيدة هي 5000  للتخصيص، التدريب، وتحويل بيانات محدودة.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -1448,7 +1597,7 @@
                     </div>
                     <div class="field">
                         <label><i class="fas fa-money-bill-wave"></i> التكلفة الإجمالية</label>
-                        <input type="text" id="total-cost-summary" readonly value="0 ج.ت">
+                        <input type="text" id="total-cost-summary" readonly value="0 ">
                     </div>
                     <div style="display: flex; gap: 10px; align-items: center;">
                         <button type="submit" class="btn btn-primary" style="flex: 1;">
@@ -1466,8 +1615,8 @@
         </div>
 
         <footer>
-            <p>العرض موجه للشركات الصغيرة والمتوسطة. جميع الحقوق محفوظة &copy; 2023</p>
-            <p class="muted" style="margin-top: 8px;">للتواصل: +201556332633 | البريد الإلكتروني: hodayounes66@gmail.com</p>
+            <p>العرض موجه للشركات الصغيرة والمتوسطة. جميع الحقوق محفوظة &copy; 2025</p>
+            <p class="muted" style="margin-top: 8px;">للتواصل: 201556332633+ |  WhatsApp</p>
         </footer>
     </div>
 
@@ -1521,6 +1670,56 @@
             minDate: "today"
         });
 
+        // Language switching functionality
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const htmlElement = document.documentElement;
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.getAttribute('data-lang');
+                
+                // Update active button
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Update HTML lang attribute
+                htmlElement.setAttribute('lang', lang);
+                
+                // Update direction
+                if (lang === 'en') {
+                    htmlElement.setAttribute('dir', 'ltr');
+                } else {
+                    htmlElement.setAttribute('dir', 'rtl');
+                }
+                
+                // Save language preference
+                localStorage.setItem('preferred-lang', lang);
+            });
+        });
+        
+        // Load saved language preference
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang) {
+            const button = document.querySelector(`.lang-btn[data-lang="${savedLang}"]`);
+            if (button) {
+                button.click();
+            }
+        }
+
+        // Track leads (page views)
+        function trackLead() {
+            let leads = localStorage.getItem('leads-count');
+            if (!leads) {
+                leads = 0;
+            }
+            leads = parseInt(leads) + 1;
+            localStorage.setItem('leads-count', leads);
+            document.getElementById('leads-count').textContent = leads;
+        }
+        
+        // Initialize leads counter
+        trackLead();
+
         // Module selection and pricing logic
         const moduleCheckboxes = document.querySelectorAll('input[name="modules"]');
         const modulesCountEl = document.getElementById('modules-count');
@@ -1555,11 +1754,11 @@
 
             // Update UI
             modulesCountEl.textContent = selectedCount;
-            modulesPriceEl.textContent = modulesPrice.toLocaleString() + ' ج.ت';
-            supportPriceEl.textContent = supportPrice.toLocaleString() + ' ج.ت';
-            finalPriceEl.textContent = finalPrice.toLocaleString() + ' ج.ت';
-            totalPriceEl.textContent = finalPrice.toLocaleString() + ' ج.ت';
-            totalCostSummaryEl.value = finalPrice.toLocaleString() + ' ج.ت';
+            modulesPriceEl.textContent = modulesPrice.toLocaleString() + ' ';
+            supportPriceEl.textContent = supportPrice.toLocaleString() + ' ';
+            finalPriceEl.textContent = finalPrice.toLocaleString() + ' ';
+            totalPriceEl.textContent = finalPrice.toLocaleString() + ' ';
+            totalCostSummaryEl.value = finalPrice.toLocaleString() + ' ';
 
             // Update selected modules list
             selectedModulesEl.innerHTML = '';
@@ -1569,7 +1768,7 @@
                     moduleEl.className = 'selected-module';
                     moduleEl.innerHTML = `
                         <span>${module}</span>
-                        <span>${MODULE_PRICE.toLocaleString()} ج.ت</span>
+                        <span>${MODULE_PRICE.toLocaleString()} </span>
                     `;
                     selectedModulesEl.appendChild(moduleEl);
                 });
@@ -1636,7 +1835,7 @@
 
         // call button opens tel: or whatsapp
         document.getElementById('callBtn').addEventListener('click', () => {
-            window.location.href = 'tel:+201556332633';
+            window.location.href = 'tel:201556332633+';
         });
 
         // whatsapp button
@@ -1704,7 +1903,7 @@
                         <h3>معلومات الشركة</h3>
                         <p><strong>الاسم:</strong> محمود يونس</p>
                         <p><strong>التخصص:</strong> مطور Odoo ومستشار حلول الأعمال</p>
-                        <p><strong>الهاتف:</strong> +201556332633</p>
+                        <p><strong>الهاتف:</strong> 201556332633+</p>
                         <p><strong>البريد الإلكتروني:</strong> hodayounes66@gmail.com</p>
                         <p><strong>الموقع:</strong> الإسكندرية، مصر</p>
                     </div>
@@ -1725,7 +1924,7 @@
                         </ul>
                     </div>
                     
-                    <p>الاتصال: +201556332633</p>
+                    <p>الاتصال: 201556332633+</p>
                 </body>
                 </html>
             `;
