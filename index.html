@@ -17,6 +17,7 @@
             --white: #ffffff;
             --success: #10b981;
             --warning: #f59e0b;
+            --error: #ef4444;
             --gradient: linear-gradient(135deg, var(--accent), #0ea5a4);
             --gradient-dark: linear-gradient(135deg, #0b7285, #0c8599);
         }
@@ -389,6 +390,18 @@
             z-index: 1000;
             align-items: center;
             gap: 10px;
+        }
+
+        .toast.error {
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .toast.warning {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fcd34d;
+            border: 1px solid rgba(245, 158, 11, 0.3);
         }
 
         .toast.show {
@@ -1357,26 +1370,44 @@
             right: auto;
             left: 70px;
         }
-        .company-name {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #2c3e50;
-    text-align: center;
-    padding: 8px 16px;
-    background: transparent;
-    border: 2px solid #3498db;
-    border-radius: 6px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
 
-.company-name:hover {
-    background: #3498db;
-    color: white;
-    transform: scale(1.05);
-}
-        
+        /* Form validation styles */
+        .field-error {
+            border-color: var(--error) !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .company-name {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            padding: 8px 16px;
+            background: transparent;
+            border: 2px solid #3498db;
+            border-radius: 6px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .company-name:hover {
+            background: #3498db;
+            color: white;
+            transform: scale(1.05);
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -1386,20 +1417,18 @@
     <div class="floating-buttons">
         <button class="floating-btn whatsapp" id="floatingWhatsapp">
             <i class="fab fa-whatsapp"></i>
-
         </button>
         <button class="floating-btn price" id="floatingPrice">
             <i class="fa-solid fa-cart-shopping"></i>
-
             <div class="floating-badge" id="floatingBadge">0</div>
         </button>
     </div>
 
     <div class="container">
-         <div class="offer-banner">
+        <div class="offer-banner">
             <div class="offer-badge">
-       <i class="fas fa-bolt"></i>
-               <span>عرض لفترة محدود مقدم من Younes.Co</span> 
+                <i class="fas fa-bolt"></i>
+                <span>عرض لفترة محدود مقدم من Younes.Co</span> 
             </div>
         </div>
         <header>
@@ -1407,15 +1436,9 @@
                 <div class="logo">
                     <img src="favicon.png" alt="Logo" width="32" height="32">
                 </div>
-
-
                 <div>
                     <h1>نظام Odoo المتكامل للشركات</h1>
                     <p class="lead">نظام ERP متكامل لتحسين عملياتك وزيادة إنتاجيتك</p>
-                </div>
-                <div>
-
-                    
                 </div>
             </div>
             <div class="header-controls">
@@ -1433,22 +1456,14 @@
                         <span>باقي من العروض:</span>
                         <span class="counter-number" id="counter">8</span>
                     </div>
-<br>
-             
+                </div>
+            </div>
         </header>
-
-
 
         <div class="hero-section">
             <div class="hero-bg"></div>
             <h2 class="hero-title">نظام ERP جاهز و متوافق لعملك  — بسرعة و كفاءة</h2>
-            <p class="hero-sub">احصل على نظام Odoo المتكامل الآن
-مقابل 8,888 فقط سنقوم بتثبيت وإعداد وحدة العمل (Module) التي تحتاجها في نسخة Odoo Community Edition مع ضمان جاهزيتها للعمل
-عرضنا يشمل 
-تخصيص الوحدة بالكامل
-إعداد التقارير التشغيلية اللازمة
-تدريب فريقك على الاستخدام الأمثل للنظام
-بالإضافة إلى رسوم دعم سنوي منفصلة بقيمة 2,500</p>
+            <p class="hero-sub">احصل على نظام Odoo المتكامل الآن مقابل 8,888 فقط سنقوم بتثبيت وإعداد وحدة العمل (Module) التي تحتاجها في نسخة Odoo Community Edition مع ضمان جاهزيتها للعمل عرضنا يشمل تخصيص الوحدة بالكامل إعداد التقارير التشغيلية اللازمة تدريب فريقك على الاستخدام الأمثل للنظام بالإضافة إلى رسوم دعم سنوي منفصلة بقيمة 2,500</p>
             
             <div class="hosting-notice">
                 <i class="fas fa-server"></i>
@@ -1509,11 +1524,13 @@
                         <div class="field-row">
                             <div class="field">
                                 <label><i class="fas fa-user"></i> الاسم الكامل</label>
-                                <input type="text" id="name" placeholder="مثال:Younes" required>
+                                <input type="text" id="name" placeholder="مثال: Younes" required>
+                                <div class="error-message" id="name-error">يرجى إدخال الاسم الكامل</div>
                             </div>
                             <div class="field">
                                 <label><i class="fas fa-building"></i> اسم الشركة</label>
-                                <input type="text" id="company" placeholder=" شركة Younes.Co" required>
+                                <input type="text" id="company" placeholder="شركة Younes.Co" required>
+                                <div class="error-message" id="company-error">يرجى إدخال اسم الشركة</div>
                             </div>
                         </div>
                         
@@ -1521,10 +1538,12 @@
                             <div class="field">
                                 <label><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
                                 <input type="email" id="email" placeholder="name@Younes.co" required>
+                                <div class="error-message" id="email-error">يرجى إدخال بريد إلكتروني صحيح</div>
                             </div>
                             <div class="field">
                                 <label><i class="fas fa-phone"></i> رقم الهاتف (WhatsApp)</label>
                                 <input type="tel" id="phone" placeholder="+201556332633" required>
+                                <div class="error-message" id="phone-error">يرجى إدخال رقم هاتف صحيح</div>
                             </div>
                         </div>
 
@@ -1671,6 +1690,7 @@
                             <div class="tags-container" id="selectedModulesTags">
                                 <!-- سيتم إضافة التاجز هنا تلقائياً -->
                             </div>
+                            <div class="error-message" id="modules-error">يرجى اختيار موديول واحد على الأقل</div>
                         </div>
 
                         <div class="field">
@@ -1718,237 +1738,236 @@
                 </div>
             </div>
         </section>
-                <!-- Projects Section -->
-                <div class="section-header section-header-minimal">
-                    <div class="section-icon">
-                        <i class="fas fa-briefcase"></i>
+
+        <!-- Projects Section -->
+        <div class="section-header section-header-minimal">
+            <div class="section-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="section-header-content">
+                <h3>المشاريع والموديولات المطورة</h3>
+                <p class="muted">أبرز المشاريع والموديولات المخصصة التي قمت بتطويرها للشركات</p>
+            </div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-hotel"></i>
                     </div>
-                    <div class="section-header-content">
-                        <h3>المشاريع والموديولات المطورة</h3>
-                        <p class="muted">أبرز المشاريع والموديولات المخصصة التي قمت بتطويرها للشركات</p>
+                    <div>
+                        <h4>نظام إدارة الفنادق</h4>
+                        <p class="muted">Coral Hills Hotel</p>
                     </div>
                 </div>
+                <p>نظام متكامل لإدارة الحجوزات، الاستقبال، والخدمات الفندقية مع تقارير الأداء والإيرادات.</p>
+                <div class="project-modules">
+                    <span class="project-module">الحجوزات</span>
+                    <span class="project-module">إدارة الغرف</span>
+                    <span class="project-module">الفواتير</span>
+                    <span class="project-module">التقارير</span>
+                </div>
+            </div>
 
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i class="fas fa-hotel"></i>
-                            </div>
-                            <div>
-                                <h4>نظام إدارة الفنادق</h4>
-                                <p class="muted">Coral Hills Hotel</p>
-                            </div>
-                        </div>
-                        <p>نظام متكامل لإدارة الحجوزات، الاستقبال، والخدمات الفندقية مع تقارير الأداء والإيرادات.</p>
-                        <div class="project-modules">
-                            <span class="project-module">الحجوزات</span>
-                            <span class="project-module">إدارة الغرف</span>
-                            <span class="project-module">الفواتير</span>
-                            <span class="project-module">التقارير</span>
-                        </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-car"></i>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i class="fas fa-car"></i>
-                            </div>
-                            <div>
-                                <h4>نظام إدارة السيارات</h4>
-                                <p class="muted">El Tarek Automotive</p>
-                            </div>
-                        </div>
-                        <p>نظام متكامل CRM, السيارات, HRMS, فواتير الشراء, حماية المستهلك, المبيعات.</p>
-                        <div class="project-modules">
-                            <span class="project-module">السيارات</span>
-                            <span class="project-module">المبيعات</span>
-                            <span class="project-module">CRM</span>
-                            <span class="project-module">HRMS</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <div>
-                                <h4>نظام العيادات الطبية</h4>
-                                <p class="muted">مشاريع متعددة</p>
-                            </div>
-                        </div>
-                        <p>نظام لإدارة العيادات والمستوصفات الطبية مع سجلات المرضى، المواعيد، والوصفات الطبية.</p>
-                        <div class="project-modules">
-                            <span class="project-module">المرضى</span>
-                            <span class="project-module">المواعيد</span>
-                            <span class="project-module">الصيدلية</span>
-                            <span class="project-module">التقارير</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i class="fas fa-paw"></i>
-                            </div>
-                            <div>
-                                <h4>نظام العيادات البيطرية</h4>
-                                <p class="muted">مشاريع متعددة</p>
-                            </div>
-                        </div>
-                        <p>نظام متكامل لإدارة العيادات البيطرية مع سجلات الحيوانات، التطعيمات، والعلاجات.</p>
-                        <div class="project-modules">
-                            <span class="project-module">الحيوانات</span>
-                            <span class="project-module">التطعيمات</span>
-                            <span class="project-module">العلاجات</span>
-                            <span class="project-module">التذكيرات</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i class="fas fa-utensils"></i>
-                            </div>
-                            <div>
-                                <h4>نظام المطاعم</h4>
-                                <p class="muted">مشاريع متعددة</p>
-                            </div>
-                        </div>
-                        <p>نظام متكامل لإدارة المطاعم مع نقاط البيع، شاشات المطبخ، وإدارة الطلبات.</p>
-                        <div class="project-modules">
-                            <span class="project-module">نقطة البيع</span>
-                            <span class="project-module">شاشات المطبخ</span>
-                            <span class="project-module">الطلبات</span>
-                            <span class="project-module">المخزون</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div>
-                                <h4>نظام الموارد البشرية</h4>
-                                <p class="muted">Al Rabiah Al Khadra Group</p>
-                            </div>
-                        </div>
-                        <p>نظام شامل للموارد البشرية متوافق مع قانون العمل الإماراتي مع إدارة الرواتب والمزايا.</p>
-                        <div class="project-modules">
-                            <span class="project-module">الموظفين</span>
-                            <span class="project-module">الرواتب</span>
-                            <span class="project-module">الإجازات</span>
-                            <span class="project-module">المزايا</span>
-                        </div>
+                    <div>
+                        <h4>نظام إدارة السيارات</h4>
+                        <p class="muted">El Tarek Automotive</p>
                     </div>
                 </div>
+                <p>نظام متكامل CRM, السيارات, HRMS, فواتير الشراء, حماية المستهلك, المبيعات.</p>
+                <div class="project-modules">
+                    <span class="project-module">السيارات</span>
+                    <span class="project-module">المبيعات</span>
+                    <span class="project-module">CRM</span>
+                    <span class="project-module">HRMS</span>
+                </div>
+            </div>
 
-                <div class="section-header section-header-center">
-                    <div class="section-icon">
-                        <i class="fas fa-play-circle"></i>
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-user-md"></i>
                     </div>
-                    <div class="section-header-content">
-                        <h3>خطوات التنفيذ</h3>
-                        <p class="muted">رحلة سلسة من الطلب إلى التسليم</p>
+                    <div>
+                        <h4>نظام العيادات الطبية</h4>
+                        <p class="muted">مشاريع متعددة</p>
                     </div>
                 </div>
+                <p>نظام لإدارة العيادات والمستوصفات الطبية مع سجلات المرضى، المواعيد، والوصفات الطبية.</p>
+                <div class="project-modules">
+                    <span class="project-module">المرضى</span>
+                    <span class="project-module">المواعيد</span>
+                    <span class="project-module">الصيدلية</span>
+                    <span class="project-module">التقارير</span>
+                </div>
+            </div>
 
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-title">التشاور</div>
-                        <div class="step-desc">نقوم بفهم احتياجاتك</div>
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-paw"></i>
                     </div>
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-title">التخصيص</div>
-                        <div class="step-desc">نقوم بتخصيص النظام</div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-title">التدريب</div>
-                        <div class="step-desc">ندرب فريقك على النظام</div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-title">التسليم</div>
-                        <div class="step-desc">نسلم النظام جاهزًا للعمل</div>
+                    <div>
+                        <h4>نظام العيادات البيطرية</h4>
+                        <p class="muted">مشاريع متعددة</p>
                     </div>
                 </div>
-
-                <div class="cta-row">
-                    <button class="btn btn-primary" id="bookDemo">
-                        <i class="fas fa-calendar-check"></i>
-                        <span>حجز Demo مجاني</span>
-                    </button>
-                    <button class="btn btn-whatsapp" id="whatsappBtn">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>راسلني على واتساب</span>
-                    </button>
+                <p>نظام متكامل لإدارة العيادات البيطرية مع سجلات الحيوانات، التطعيمات، والعلاجات.</p>
+                <div class="project-modules">
+                    <span class="project-module">الحيوانات</span>
+                    <span class="project-module">التطعيمات</span>
+                    <span class="project-module">العلاجات</span>
+                    <span class="project-module">التذكيرات</span>
                 </div>
+            </div>
 
-                <hr>
-
-                <div class="faq-section">
-                    <div class="section-header section-header-minimal">
-                        <div class="section-icon">
-                            <i class="fas fa-question-circle"></i>
-                        </div>
-                        <div class="section-header-content">
-                            <h4>الأسئلة الشائعة</h4>
-                            <p class="muted">إجابات على الأسئلة الأكثر شيوعاً</p>
-                        </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-utensils"></i>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>هل تثبيت فعلاً مجاني؟</span>
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>نعم — نقوم بت
-بتثبيت النظام وتهيئة الأساسيات مجانًا. التكلفة الوحيدة هي 8888  للتخصيص، التدريب، وتحويل بيانات محدودة.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>كم يستغرق وقت التسليم؟</span>
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>نقوم بالتسليم خلال 3 أيام عمل من تاريخ الموافقة على العرض ودفع العربون.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>هل يمكن إضافة وحدات جديدة لاحقًا؟</span>
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>نعم، يمكنك إضافة أي وحدات إضافية لاحقًا بسعر مناسب حسب متطلباتك.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>ما هي نسخة Odoo المستخدمة؟</span>
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>نستخدم Odoo 17 Community Edition وهي النسخة المجانية والمفتوحة المصدر.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>من يتحمل تكلفة الاستضافة؟</span>
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>تكلفة الاستضافة السنوية تتحملها الشركة وليست ضمن تكلفة الخدمة.</p>
-                        </div>
+                    <div>
+                        <h4>نظام المطاعم</h4>
+                        <p class="muted">مشاريع متعددة</p>
                     </div>
                 </div>
-        
+                <p>نظام متكامل لإدارة المطاعم مع نقاط البيع، شاشات المطبخ، وإدارة الطلبات.</p>
+                <div class="project-modules">
+                    <span class="project-module">نقطة البيع</span>
+                    <span class="project-module">شاشات المطبخ</span>
+                    <span class="project-module">الطلبات</span>
+                    <span class="project-module">المخزون</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h4>نظام الموارد البشرية</h4>
+                        <p class="muted">Al Rabiah Al Khadra Group</p>
+                    </div>
+                </div>
+                <p>نظام شامل للموارد البشرية متوافق مع قانون العمل الإماراتي مع إدارة الرواتب والمزايا.</p>
+                <div class="project-modules">
+                    <span class="project-module">الموظفين</span>
+                    <span class="project-module">الرواتب</span>
+                    <span class="project-module">الإجازات</span>
+                    <span class="project-module">المزايا</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header section-header-center">
+            <div class="section-icon">
+                <i class="fas fa-play-circle"></i>
+            </div>
+            <div class="section-header-content">
+                <h3>خطوات التنفيذ</h3>
+                <p class="muted">رحلة سلسة من الطلب إلى التسليم</p>
+            </div>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-title">التشاور</div>
+                <div class="step-desc">نقوم بفهم احتياجاتك</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-title">التخصيص</div>
+                <div class="step-desc">نقوم بتخصيص النظام</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-title">التدريب</div>
+                <div class="step-desc">ندرب فريقك على النظام</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-title">التسليم</div>
+                <div class="step-desc">نسلم النظام جاهزًا للعمل</div>
+            </div>
+        </div>
+
+        <div class="cta-row">
+            <button class="btn btn-primary" id="bookDemo">
+                <i class="fas fa-calendar-check"></i>
+                <span>حجز Demo مجاني</span>
+            </button>
+            <button class="btn btn-whatsapp" id="whatsappBtn">
+                <i class="fab fa-whatsapp"></i>
+                <span>راسلني على واتساب</span>
+            </button>
+        </div>
+
+        <hr>
+
+        <div class="faq-section">
+            <div class="section-header section-header-minimal">
+                <div class="section-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="section-header-content">
+                    <h4>الأسئلة الشائعة</h4>
+                    <p class="muted">إجابات على الأسئلة الأكثر شيوعاً</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>هل تثبيت فعلاً مجاني؟</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نعم — نقوم بتثبيت النظام وتهيئة الأساسيات مجانًا. التكلفة الوحيدة هي 8888 للتخصيص، التدريب، وتحويل بيانات محدودة.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>كم يستغرق وقت التسليم؟</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نقوم بالتسليم خلال 3 أيام عمل من تاريخ الموافقة على العرض ودفع العربون.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>هل يمكن إضافة وحدات جديدة لاحقًا؟</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نعم، يمكنك إضافة أي وحدات إضافية لاحقًا بسعر مناسب حسب متطلباتك.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>ما هي نسخة Odoo المستخدمة؟</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>نستخدم Odoo 17 Community Edition وهي النسخة المجانية والمفتوحة المصدر.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>من يتحمل تكلفة الاستضافة؟</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>تكلفة الاستضافة السنوية تتحملها الشركة وليست ضمن تكلفة الخدمة.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Toast Notification -->
@@ -1968,15 +1987,15 @@
             <form id="demoForm">
                 <div class="field">
                     <label>الاسم الكامل</label>
-                    <input type="text" id="demoName" placeholder="مثال: أحمد محمد" required>
+                    <input type="text" id="demoName" placeholder="مثال:Younes" required>
                 </div>
                 <div class="field">
                     <label>البريد الإلكتروني</label>
-                    <input type="email" id="demoEmail" placeholder="name@company.com" required>
+                    <input type="email" id="demoEmail" placeholder="name@younes.co" required>
                 </div>
                 <div class="field">
                     <label>رقم الهاتف</label>
-                    <input type="tel" id="demoPhone" placeholder="+2010xxxxxxxx" required>
+                    <input type="tel" id="demoPhone" placeholder="+201556332633" required>
                 </div>
                 <div class="field">
                     <label>الوقت المناسب للاتصال</label>
@@ -2005,6 +2024,25 @@
 
         // Track leads (page views)
         function trackLead() {
+            // Send visit to Google Sheets
+            const data = {
+                key: ADMIN_CONFIG.AUTH_KEY,
+                type: "visit",
+                device: navigator.userAgent.includes("Mobile") ? "Mobile" : "PC",
+                os: navigator.platform,
+                browser: navigator.appName,
+                userAgent: navigator.userAgent,
+                sessionId: Math.random().toString(36).substring(2)
+            };
+
+            fetch(WEB_APP_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+                mode: "no-cors"
+            }).catch(err => console.error("Error tracking visit:", err));
+
+            // Get current count from localStorage
             let leads = localStorage.getItem('leads-count');
             if (!leads) {
                 leads = 0;
@@ -2121,12 +2159,83 @@
         updatePricing();
 
         // Helper: show toast
-        function showToast(text) {
+        function showToast(text, type = "success") {
             const toast = document.getElementById('toast');
             const toastText = document.getElementById('toast-text');
+            const toastIcon = toast.querySelector('i');
+            
             toastText.textContent = text;
-            toast.classList.add('show');
+            
+            // Set icon and style based on type
+            if (type === "error") {
+                toast.className = "toast error show";
+                toastIcon.className = "fas fa-exclamation-circle";
+            } else if (type === "warning") {
+                toast.className = "toast warning show";
+                toastIcon.className = "fas fa-exclamation-triangle";
+            } else {
+                toast.className = "toast show";
+                toastIcon.className = "fas fa-check-circle";
+            }
+            
             setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.classList.remove('show');
+            });
+            document.querySelectorAll('.field-error').forEach(el => {
+                el.classList.remove('field-error');
+            });
+            
+            // Validate name
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                document.getElementById('name-error').classList.add('show');
+                document.getElementById('name').classList.add('field-error');
+                isValid = false;
+            }
+            
+            // Validate company
+            const company = document.getElementById('company').value.trim();
+            if (!company) {
+                document.getElementById('company-error').classList.add('show');
+                document.getElementById('company').classList.add('field-error');
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                document.getElementById('email-error').classList.add('show');
+                document.getElementById('email').classList.add('field-error');
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phone = document.getElementById('phone').value.trim();
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,}$/;
+            if (!phone || !phoneRegex.test(phone)) {
+                document.getElementById('phone-error').classList.add('show');
+                document.getElementById('phone').classList.add('field-error');
+                isValid = false;
+            }
+            
+            // Validate modules
+            const selectedModules = Array.from(moduleCheckboxes).filter(cb => cb.checked);
+            if (selectedModules.length === 0) {
+                document.getElementById('modules-error').classList.add('show');
+                modulesDropdown.classList.add('field-error');
+                isValid = false;
+            }
+            
+            return isValid;
         }
 
         // Floating WhatsApp button
@@ -2212,7 +2321,7 @@
                 document.getElementById('demoForm').reset();
             } catch(err) {
                 console.error(err);
-                showToast("فشل الاتصال بالخادم");
+                showToast("فشل الاتصال بالخادم", "error");
             }
         });
 
@@ -2235,6 +2344,12 @@
         // Form submission -> send to Google Sheets and WhatsApp
         document.getElementById('leadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Validate form
+            if (!validateForm()) {
+                showToast("يرجى ملء جميع الحقول المطلوبة بشكل صحيح", "error");
+                return;
+            }
             
             const name = document.getElementById('name').value.trim();
             const company = document.getElementById('company').value.trim();
@@ -2313,7 +2428,7 @@
                 updatePricing();
             } catch(err) {
                 console.error(err);
-                showToast("فشل الاتصال بالخادم");
+                showToast("فشل الاتصال بالخادم", "error");
             }
         });
 
